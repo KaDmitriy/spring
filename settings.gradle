@@ -1,0 +1,6 @@
+
+rootProject.name = 'spring'
+
+include('lib')
+include('mvc')
+include('security')
