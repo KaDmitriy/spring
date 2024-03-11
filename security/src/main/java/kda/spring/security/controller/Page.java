@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Page {
 
 	@GetMapping("/")
-	public String getMethodName() {
+	public String getIndex() {
 		return "index";
+	}
+	
+	@GetMapping("/info")
+	public String getInfo() {
+		return "info";
 	}
 	
 }
