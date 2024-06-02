@@ -1,0 +1,8 @@
+plugins {
+	id 'java'
+	id 'eclipse'
+}
+
+java {
+	sourceCompatibility = '21'
+}
