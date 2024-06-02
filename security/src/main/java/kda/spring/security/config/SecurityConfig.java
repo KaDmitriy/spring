@@ -1,13 +1,8 @@
 package kda.spring.security.config;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationEventPublisher;
-import org.springframework.security.authentication.DefaultAuthenticationEventPublisher;
 import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -42,12 +37,14 @@ public class SecurityConfig {
 
 	@Bean
 	UserDetailsService userDetailsService() {
+		@SuppressWarnings("deprecation")
 		UserDetails userDetails = User.withDefaultPasswordEncoder()
 			.username("user")
 			.password("111")
 			.roles("USER")
 			.build();
 		
+		@SuppressWarnings("deprecation")
 		UserDetails userDetails2 = User.withDefaultPasswordEncoder()
 				.username("user2")
 				.password("111")
@@ -58,7 +55,7 @@ public class SecurityConfig {
 	}
 
 	@Bean
-	public PasswordEncoder passwordEncoder() {
+	PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
 	
